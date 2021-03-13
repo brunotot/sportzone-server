@@ -12,7 +12,7 @@ public class TestController {
     @GetMapping
     @ResponseBody
     public ResponseEntity<TestEntity> index() {
-        return ResponseEntity.ok(new TestEntity("Hello world!"));
+        return ResponseEntity.ok(new TestEntity("Hello world test auto-build!"));
     }
 
 }
