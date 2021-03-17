@@ -6,7 +6,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="1" author="bruno.tot">
+    <changeSet author="bruno.tot" id="1">
         <createTable tableName="user">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -20,7 +20,52 @@
             <column name="email" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="active" type="int">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
+    </changeSet>
+
+    <changeSet author="bruno.tot" id="2">
+        <insert tableName="user">
+            <column name="id" value="1"/>
+            <column name="username" value="btot1"/>
+            <column name="email" value="btot1@test.com"/>
+            <column name="password" value="$2a$10$pqUKe./WM9LlHKYzuMVIOuZvcXblI9dK.CGMKXo2uWPwLb8Oqlc4C"/>
+            <column name="active" value="1"/>
+        </insert>
+        <insert tableName="user">
+            <column name="id" value="2"/>
+            <column name="username" value="btot2"/>
+            <column name="email" value="btot2@test.com"/>
+            <column name="password" value="$2a$10$fDVP96wyFNrcbu6Pv6OU4eHFlwQ1Be/m3vwv33gKx0zQkZW6PZtyC"/>
+            <column name="active" value="1"/>
+        </insert>
+        <insert tableName="user">
+            <column name="id" value="3"/>
+            <column name="username" value="btot3"/>
+            <column name="email" value="btot3@test.com"/>
+            <column name="password" value="$2a$10$4B0HowVtisQIN9u9FtZ/EeTt/lvf9K9OSnlfoRNR8jGpml9n7XSwO"/>
+            <column name="active" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="bruno.tot" id="3">
+        <createTable tableName="user_roles">
+            <column name="id_user" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="bruno.tot" id="4">
+        <insert tableName="user_roles">
+            <column name="id_user" value="1"/>
+            <column name="role_name" value="ROLE_ADMIN"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>
